@@ -1,0 +1,82 @@
+
+
+/* Define Variables */
+
+
+/* TEXT */
+$frontend-fonts: "Trebechet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", "sans-serif"; 
+
+$text-color-primary: #4D4D4D;
+
+$text-color-accent: #ff851f;
+
+
+/* BUTTONS */
+$button-fonts: "Verdana", "Arial", "Helvetica", "sans-serif";
+
+$button-border-color: #e56800;
+
+$button-accent: #ff851f;
+
+$button-accent-hover: #eb6b00;
+
+
+/* HEADLINES */
+$headline-fonts: "Lucida Grande", "Lucida Sans", "Verdana", "Geneva", "sans-serif";
+
+$headline-color: #344e67;
+
+
+/* Layout */
+
+body {
+	font: 100% $frontend-fonts;
+	color: $text-color-primary;
+	padding: 0;
+	margin: 0;
+}
+
+h2 {
+	font-size: 1.5rem;
+	line-height: 1.4;
+	color: $headline-color;
+	font: $headline-fonts;
+	margin: 1.1rem;
+}
+
+.text{
+	margin: 1.1rem;
+	line-height: 1.75em;	
+}
+
+.mybutton {
+	background-color: $button-accent;
+	border-color: $button-border-color;
+	color: #fff;
+	font-size: .9rem;
+	border-radius: 3px;
+	padding: .75rem 1rem;
+	-webkit-transition: background-color .25s; 			/* Safari */
+	transition: background-color .25s;
+	font-family: $button-fonts;
+	font-weight: 700;
+	text-align: center;
+}
+
+.mybutton:hover {
+	background-color: $button-accent-hover;
+}
+
+.mybutton:focus {
+	outline: none;
+}
+
+.center-display-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.accent {
+	color: $text-color-accent;
+}

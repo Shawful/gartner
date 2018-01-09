@@ -1,0 +1,51 @@
+/* Define Variables */
+/* TEXT */
+/* BUTTONS */
+/* HEADLINES */
+/* Layout */
+body {
+  font: 100% "Trebechet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", "sans-serif";
+  color: #4D4D4D;
+  padding: 0;
+  margin: 0; }
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #344e67;
+  font: "Lucida Grande", "Lucida Sans", "Verdana", "Geneva", "sans-serif";
+  margin: 1.1rem; }
+
+.text {
+  margin: 1.1rem;
+  line-height: 1.75em; }
+
+.mybutton {
+  background-color: #ff851f;
+  border-color: #e56800;
+  color: #fff;
+  font-size: .9rem;
+  border-radius: 3px;
+  padding: .75rem 1rem;
+  -webkit-transition: background-color .25s;
+  /* Safari */
+  transition: background-color .25s;
+  font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+  font-weight: 700;
+  text-align: center; }
+
+.mybutton:hover {
+  background-color: #eb6b00; }
+
+.mybutton:focus {
+  outline: none; }
+
+.center-display-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.accent {
+  color: #ff851f; }
+
+/*# sourceMappingURL=main_output.css.map */
