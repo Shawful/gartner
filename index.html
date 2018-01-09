@@ -42,9 +42,8 @@
 				        		<br>
 				        		<div class="row">
 				        			<div class="col-sm-6">
-											<!-- <select id="single-button" class="btn myinput" ng-model="state" ng-options="state for state in states"></select>
- -->										<div class="btn-group" uib-dropdown is-open="status.isopen">
-											<button id="single-button" type="button" class="btn myinput" uib-dropdown-toggle ng-disabled="disabled">{{state}}<span class="caret" ng-class="{'stateSelected' : state != 'State '}" ng-model="state"></span></button>
+										<div class="btn-group" uib-dropdown is-open="status.isopen">
+											<button id="single-button" type="button" class="btn myinput" ng-class="{'stateSelected' : state != 'State ', 'myinput' : state == 'State '}" uib-dropdown-toggle ng-disabled="disabled">{{state}}<span class="caret" ng-model="state"></span></button>
 											<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
 												<li role="menuitem"><a ng-click="state='AL'">AL</a></li>
 												<li role="menuitem"><a ng-click="state='AK'">AK</a></li>

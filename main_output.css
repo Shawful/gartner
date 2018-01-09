@@ -103,6 +103,7 @@ div.row div .myinput:focus {
   font-size: 10px; }
 
 .btn .stateSelected {
-  margin-left: 74px; }
+  margin-left: 74px;
+  color: #4D4D4D; }
 
 /*# sourceMappingURL=main_output.css.map */
