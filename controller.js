@@ -1,45 +1,35 @@
 var app = angular.module('buttonABTest', ['ngCookies', 'ngAnimate', 'ui.bootstrap']);
 
-app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 
-	function ($scope, $uibModalInstance) {
+app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', '$cookies', 
+	function ($scope, $uibModalInstance, $cookies) {
 
-		$scope.submit = function () {
-			console.log('submit clicked');
-			$uibModalInstance.close();
-		};
+		$scope.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE'];
 
-		$scope.cancel = function () {
-			console.log('cancel clicked');
-			$uibModalInstance.dismiss('cancel');
-		};
-	}
-]);
-
-app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal', 
-	function($scope, $rootScope, $cookies, $uibModal) {
-		
-		var states = ['Alabama', 'Texas'];
-		var animationsEnabled = true;
-		var click_info = {
-			'session_id': 'blank_initially'
-		};
 		var time = {
 			getExpiration: function () {
 				var now = new Date(); 					// javascript date time
-				console.log(now);
+				// console.log(now);
 				now.setDate(now.getDate() + 1);			// one day until expiration
-				console.log(now);
+				// console.log(now);
 				var expiration = now.toUTCString(); 	// "Wdy, DD Mon YYYY HH:MM:SS GMT"
-				console.log(expiration);
+				// console.log(expiration);
 				
 				return expiration;
 			}
 		};
 
-		$scope.init = function () {
+		$scope.$watch('name', function(newValue, oldValue) {
+			if (newValue != oldValue) {
+				console.log(newValue);
+			}
+		});
+
+		var init = function () {
 			var variation = $cookies.get('variation');
+			// console.log('variation: ' + variation);
 			var dice_roll;
 			var expiration = time.getExpiration();
+			var selection = '';
 
 			if (variation === undefined) {
 				// assign variation randomly
@@ -49,22 +39,58 @@ app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal',
 						expires: expiration,
 						path: '/'
 					});
-					console.log('set the cookie!');
-					console.log($cookies.get('variation'));
+					selection = 'A.png';
+					console.log('set the A variation in cookie!');
 				} else {
 					$cookies.put('variation','B', {
 						expires: expiration,
 						path: '/'
 					});
-					console.log('set the cookie!');
-					console.log($cookies.get('variation'));
+					selection = 'B.png';
+					console.log('set the B variation in cookie!');
 				}
 			} else {
-				// display only this variation's image
-				console.log(variation);
+				// A variation has already been assigned for this client!
+				selection = $cookies.get('variation') + '.png';
+				// console.log($cookies.get('variation') + ' variation already set');
 			}
-			console.log('initialized');
-			console.log('variation: ' + variation);
+			
+			return selection;
+		};
+
+		$scope.image_choice = init();
+		$scope.variation = $scope.image_choice.charAt(0);
+
+		$scope.submit = function () {
+			console.log({
+				'name': $scope.name,
+				'email': $scope.email,
+				'phone': $scope.phone,
+				'address': $scope.address,
+				'city': $scope.city,
+				'state': $scope.state,
+				'zipcode': $scope.zipcode,
+				'variation': $scope.variation
+			});
+			console.log('submit clicked');
+			$uibModalInstance.close();
+		};
+
+		$scope.cancel = function () {
+			console.log('cancel clicked');
+			$uibModalInstance.dismiss('cancel');
+		};
+
+		return $scope;
+	}
+]);
+
+app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal', 
+	function($scope, $rootScope, $cookies, $uibModal) {
+		var states = ['Alabama', 'Texas'];
+		var animationsEnabled = true;
+		var click_info = {
+			'session_id': 'blank_initially'
 		};
 
 		$scope.buttonClicked = function () {
@@ -74,7 +100,7 @@ app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal',
 		};
 
 		$scope.openModal = function() {
-			
+			var image_choice = 'A.png';
 		    var modalInstance = $uibModal.open({
 		      animation: animationsEnabled,
 		      templateUrl: 'myModalContent.html',
@@ -87,10 +113,6 @@ app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal',
 		      // Modal dismissed
 		      console.log('Modal dismissed at: ' + new Date());
 		    });
-
-		    
 		};
-
-		$scope.init();
 	}
 ]);

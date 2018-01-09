@@ -28,38 +28,43 @@
 	        	<button class="close" ng-click="cancel()">&times;</button>
 	        	<br>
 		        <!-- TODO: insert modal content here -->
+		        <!-- We would normally use a form element for a PHP server to get the user's input, but since we're not interacting with the server (just the console) I'll keep the form element and preventDefault() out of my code; I'm aware of thier use - it's just not necessary with Angular -->
 		        <div class="row">
 		        	<div class="col-sm-6">
-		        		<input type="text" class="form-control myinput" placeholder="Name">
-		        		<br>
-		        		<input type="email" class="form-control myinput" placeholder="Email">
-		        		<br>
-		        		<input type="text" class="form-control myinput" placeholder="Phone">
-		        		<br>
-		        		<input type="text" class="form-control myinput" placeholder="Address">
-		        		<br>
-		        		<input type="text" class="form-control myinput" placeholder="City">
-		        		<br>
-		        		<div class="row">
-		        			<div class="col-sm-6">
-				        		<!-- <input type="text" class="form-control" placeholder="State"> -->
-								<div class="btn-group" uib-dropdown is-open="status.isopen">
-									<button id="single-button" type="button" class="btn myinput primary-theme" uib-dropdown-toggle ng-disabled="disabled">State<span class="caret"></span></button>
-									<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-										<li role="menuitem"><a href="">Test</a></li>
-										<!-- <li role="menuitem"><a href="">Another action</a></li> -->
-										<!-- <li role="menuitem"><a href="#">Something else here</a></li> -->
-										<!-- <li role="menuitem"><a href="#">Separated link</a></li> -->
-									</ul>
-								</div>
-		        			</div>
-		        			<div class="col-sm-6">
-				        		<input type="text" class="form-control myinput" placeholder="Zip Code">
-		        			</div>
-		        		</div>
+			        		<input type="text" class="form-control myinput" placeholder="Name" ng-model="name">
+			        		<br>
+			        		<input type="email" class="form-control myinput" placeholder="Email" ng-model="email">
+			        		<br>
+			        		<input type="text" class="form-control myinput" placeholder="Phone" ng-model="phone">
+			        		<br>
+			        		<input type="text" class="form-control myinput" placeholder="Address" ng-model="address">
+			        		<br>
+			        		<input type="text" class="form-control myinput" placeholder="City" ng-model="city">
+			        		<br>
+			        		<div class="row">
+			        			<div class="col-sm-6">
+										<!-- <select id="single-button" class="btn caret myinput" ng-model="state" ng-options="state for state in states"></select> -->
+									<div class="btn-group" uib-dropdown is-open="status.isopen">
+										<button id="single-button" type="button" class="btn myinput" uib-dropdown-toggle ng-disabled="disabled">State<span class="caret" ng-model="state"></span>{{state}}</button>
+										<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+											<li role="menuitem"><a href="">AL</a></li>
+											<li role="menuitem"><a href="">AK</a></li>
+											<li role="menuitem"><a href="">AZ</a></li>
+											<li role="menuitem"><a href="">AR</a></li>
+											<li role="menuitem"><a href="">CA</a></li>
+											<li role="menuitem"><a href="">CO</a></li>
+											<li role="menuitem"><a href="">CT</a></li>
+										</ul>
+									</div>
+			        			</div>
+			        			<div class="col-sm-6">
+					        		<input type="text" class="form-control myinput" placeholder="Zip Code" ng-model="zipcode">
+			        			</div>
+			        		</div>
 		        	</div>
 		        	<div class="col-sm-6">
-		        		<img class="center-display-block test-image" src="">
+		        		<img class="center-display-block test-image" ng-src="{{image_choice}}">
+		        		
 		        		<br>
 				        	<button class="mybutton modalSubmit center-display-block" ng-click="submit()">Submit</button>
 		        	</div>
