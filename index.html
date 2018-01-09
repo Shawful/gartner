@@ -3,7 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Software Advice A/B Test Button</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="main_output.css">
+
 </head>
 <body ng-app="buttonABTest">
 	<div ng-controller="myCtrl">
@@ -16,10 +19,60 @@
 		<div class="text">Asperiores ducimus odio nisi laudantium culpa, blanditiis error. Totam magni quas optio fuga, omnis in nulla debitis, ducimus, necessitatibus cum similique nisi accusamus ullam ratione porro esse commodi quaerat vero.</div>
 		<br><br>
 		<button class="mybutton center-display-block" ng-click="buttonClicked()">Request Price Quote</button>
+		
+		<!-- Modal -->
+		<script type="text/ng-template" id="myModalContent.html">
+	        <!-- <div class="modal-title" id="modal-title"> -->
+	        <!-- </div> -->
+		    <div class="modal-body" id="modal-body">
+	        	<button class="close" ng-click="cancel()">&times;</button>
+	        	<br>
+		        <!-- TODO: insert modal content here -->
+		        <div class="row">
+		        	<div class="col-sm-6">
+		        		<input type="text" class="form-control myinput" placeholder="Name">
+		        		<br>
+		        		<input type="email" class="form-control myinput" placeholder="Email">
+		        		<br>
+		        		<input type="text" class="form-control myinput" placeholder="Phone">
+		        		<br>
+		        		<input type="text" class="form-control myinput" placeholder="Address">
+		        		<br>
+		        		<input type="text" class="form-control myinput" placeholder="City">
+		        		<br>
+		        		<div class="row">
+		        			<div class="col-sm-6">
+				        		<!-- <input type="text" class="form-control" placeholder="State"> -->
+								<div class="btn-group" uib-dropdown is-open="status.isopen">
+									<button id="single-button" type="button" class="btn myinput primary-theme" uib-dropdown-toggle ng-disabled="disabled">State<span class="caret"></span></button>
+									<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+										<li role="menuitem"><a href="">Test</a></li>
+										<!-- <li role="menuitem"><a href="">Another action</a></li> -->
+										<!-- <li role="menuitem"><a href="#">Something else here</a></li> -->
+										<!-- <li role="menuitem"><a href="#">Separated link</a></li> -->
+									</ul>
+								</div>
+		        			</div>
+		        			<div class="col-sm-6">
+				        		<input type="text" class="form-control myinput" placeholder="Zip Code">
+		        			</div>
+		        		</div>
+		        	</div>
+		        	<div class="col-sm-6">
+		        		<img class="center-display-block test-image" src="">
+		        		<br>
+				        	<button class="mybutton modalSubmit center-display-block" ng-click="submit()">Submit</button>
+		        	</div>
+		        </div>
+		    </div>
+		</script>
+		<!-- End of Modal -->
+		
 	</div>
 </body>
 
 <!-- Scripts -->
+
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -27,6 +80,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 <script src="controller.js"></script>
+
 
 </html>
