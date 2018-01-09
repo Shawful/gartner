@@ -113,6 +113,7 @@ div.row div .myinput:focus {
 #single-button {
 	line-height: unset;
 	color: $disabled-text-color;
+	border: 1px solid $text-color-accent;
 }
 /* END CUSTOM CLASSES */
 

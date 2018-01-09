@@ -72,7 +72,8 @@ div.row div .myinput:focus {
 
 #single-button {
   line-height: unset;
-  color: #9d9d9d; }
+  color: #9d9d9d;
+  border: 1px solid #ff851f; }
 
 /* END CUSTOM CLASSES */
 /* UTILITY */
