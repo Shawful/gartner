@@ -23,6 +23,49 @@ app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal',
 		var click_info = {
 			'session_id': 'blank_initially'
 		};
+		var time = {
+			getExpiration: function () {
+				var now = new Date(); 					// javascript date time
+				console.log(now);
+				now.setDate(now.getDate() + 1);			// one day until expiration
+				console.log(now);
+				var expiration = now.toUTCString(); 	// "Wdy, DD Mon YYYY HH:MM:SS GMT"
+				console.log(expiration);
+				
+				return expiration;
+			}
+		};
+
+		$scope.init = function () {
+			var variation = $cookies.get('variation');
+			var dice_roll;
+			var expiration = time.getExpiration();
+
+			if (variation === undefined) {
+				// assign variation randomly
+				dice_roll = Math.random();
+				if (dice_roll < .5) {
+					$cookies.put('variation','A', {
+						expires: expiration,
+						path: '/'
+					});
+					console.log('set the cookie!');
+					console.log($cookies.get('variation'));
+				} else {
+					$cookies.put('variation','B', {
+						expires: expiration,
+						path: '/'
+					});
+					console.log('set the cookie!');
+					console.log($cookies.get('variation'));
+				}
+			} else {
+				// display only this variation's image
+				console.log(variation);
+			}
+			console.log('initialized');
+			console.log('variation: ' + variation);
+		};
 
 		$scope.buttonClicked = function () {
 			click_info.session_id = Date();
@@ -47,5 +90,7 @@ app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal',
 
 		    
 		};
+
+		$scope.init();
 	}
 ]);
