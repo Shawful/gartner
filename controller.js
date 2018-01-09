@@ -4,7 +4,8 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', '$cookies',
 	function ($scope, $uibModalInstance, $cookies) {
 
 		$scope.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE'];
-
+		$scope.regex = '^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$';
+		$scope.state = 'State ';
 		var time = {
 			getExpiration: function () {
 				var now = new Date(); 					// javascript date time
@@ -85,9 +86,8 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', '$cookies',
 	}
 ]);
 
-app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal', 
-	function($scope, $rootScope, $cookies, $uibModal) {
-		var states = ['Alabama', 'Texas'];
+app.controller('myCtrl' ,['$scope', '$cookies', '$uibModal', 
+	function($scope, $cookies, $uibModal) {
 		var animationsEnabled = true;
 		var click_info = {
 			'session_id': 'blank_initially'
@@ -96,6 +96,7 @@ app.controller('myCtrl' ,['$scope', '$rootScope', '$cookies', '$uibModal',
 		$scope.buttonClicked = function () {
 			click_info.session_id = Date();
 			console.log(click_info);
+			$scope.open = true;
 			$scope.openModal();
 		};
 

@@ -114,6 +114,8 @@ div.row div .myinput:focus {
 	line-height: unset;
 	color: $disabled-text-color;
 	border: 1px solid $text-color-accent;
+	font-size: 16px;
+	padding: 7px 10px 7px 12px;
 }
 /* END CUSTOM CLASSES */
 
@@ -143,3 +145,11 @@ div.row div .myinput:focus {
 	outline: none;
 }
 
+.error{
+	color: red;
+	font-size: 10px;
+}
+
+.btn .stateSelected {
+	margin-left: 74px; 
+}

@@ -73,7 +73,9 @@ div.row div .myinput:focus {
 #single-button {
   line-height: unset;
   color: #9d9d9d;
-  border: 1px solid #ff851f; }
+  border: 1px solid #ff851f;
+  font-size: 16px;
+  padding: 7px 10px 7px 12px; }
 
 /* END CUSTOM CLASSES */
 /* UTILITY */
@@ -95,5 +97,12 @@ div.row div .myinput:focus {
 
 .close:focus {
   outline: none; }
+
+.error {
+  color: red;
+  font-size: 10px; }
+
+.btn .stateSelected {
+  margin-left: 74px; }
 
 /*# sourceMappingURL=main_output.css.map */
