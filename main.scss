@@ -81,8 +81,14 @@ div.row div div button {
 }
 
 .btn .caret {
-	margin-left: 50px;
+	margin-left: 70px;
+	color: $text-color-primary;
 }
+
+button.stateSelected span.caret {
+	margin-left: 52px;
+}
+
 
 div.row div .myinput {
 	border: 1px solid $text-color-accent;
@@ -97,8 +103,23 @@ div.row div .myinput:focus {
 	box-shadow: 0 0 5px #999;
 	background: #fafafa;
 	border-color: #999;
-	color: $text-color-primary;
+	/*color: $text-color-primary;
 	border-radius: 3px;
+}
+
+#single-button {
+	line-height: unset;
+	/*color: $disabled-text-color;*/
+	border: 1px solid $text-color-accent;
+	font-size: 16px;
+	padding: 7px 10px 7px 12px;
+}
+
+div.row div .stateSelected {
+	margin-left: 74px; 
+	color: $disabled-text-color;
+	background-color: #fff;
+	border-color: $button-border-color;
 }
 
 .modalSubmit {
@@ -108,14 +129,6 @@ div.row div .myinput:focus {
 .test-image {
 	height: 240px;
 	width: 240px;
-}
-
-#single-button {
-	line-height: unset;
-	color: $disabled-text-color;
-	border: 1px solid $text-color-accent;
-	font-size: 16px;
-	padding: 7px 10px 7px 12px;
 }
 /* END CUSTOM CLASSES */
 
@@ -150,7 +163,4 @@ div.row div .myinput:focus {
 	font-size: 10px;
 }
 
-.btn .stateSelected {
-	margin-left: 74px; 
-	color: $text-color-primary;
-}
+
